@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+body,html{height:100%;}
+
+#wrap{width:640px;height:100%;padding:20px;overflow-y:auto;}
+#wrap h1,
+#wrap .pon_img{text-align:center;}
+
+
+table tbody th,
+table tbody td{text-align:left;padding:10px;}
+
+table tbody td{border-top:1px solid #ddd;border-bottom:1px solid #ddd;}
+table tbody td.table_c{background-color:#eee;}
