@@ -29,17 +29,20 @@ $select_common = " a.bseq, a.booking_date, a.booking_start_time, a.booking_end_t
 				b.dvseq, b.dv_name, b.dv_system ";
 $from_common = " tbl_device_booking a";
 
+//and a.booking_accept='Y'
 //a.booking_date='".$booking_date."' and booking_start_time='".$se_stime."'	 and
-$where_common = " a.booking_dvseq='".$seq."' and a.booking_date='".$booking_date."' and a.booking_accept='Y' and 
+$where_common = " a.booking_dvseq='".$seq."' and a.booking_date='".$booking_date."' and 
 				 ( date_format(convert(concat(a.booking_date,' ',a.booking_start_time), datetime), '%Y-%m-%d %H:%i') between '".$booking_sdate."' and '".$booking_edate."'
 				 or
 				 date_format(convert(concat(a.booking_date,' ',a.booking_end_time), datetime), '%Y-%m-%d %H:%i') between '".$booking_sdate."' and '".$booking_edate."'
 				)";
 $sql = "select count(a.bseq) as cnt from ".$from_common." where ".$where_common."";
+
 $q = $db->query($sql);
 $r = $q->fetch();
 if($r['cnt'] > 0){//예약이 있는 경우임.
 	echo "99";
+	exit;
 }else{
 	//device info	
 ?>

@@ -84,7 +84,7 @@ try{
 $header = "MIME-Version: 1.0\r\n";
 //$header.= "Content-Type: multipart/mixed; charset=utf-8;format=flowed\r\n";
 $header.= "Content-Type: text/html; charset=utf-8;format=flowed\r\n";
-$header.= "From: TestBed <no-replay@unpl.co.kr> \r\n";
+$header.= "From: TestBed <no-replay@snip.or.kr> \r\n";
 //$header.= "From: TestBed <no-replay@itwinner.co.kr> \r\n";
 $header.="Content-Transfer-Encoding: 8bit\n"; // 헤더 설정
 
@@ -98,7 +98,7 @@ $content = '<div style="position:relative;width:800px;margin:0px auto;background
 	</div>
 </div>';
 
-mail("skymanla@winddesign.co.kr", $title, $content, $header);
+mail("worldcuplove@snip.or.kr", $title, $content, $header);
 
 go_href("회원가입이 완료되었습니다.\\n로그인하시기 바랍니다.", "/page/member/login.php", "go");
 

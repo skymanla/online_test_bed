@@ -39,7 +39,8 @@ if(!empty($_GET['search_word'])){
 	}
 }
 //개수
-$count = "select count(*) as cnt from tbl_device_booking where 1 $whereis";
+//$count = "select count(*) as cnt from tbl_device_booking where 1 $whereis group by booking_seqnum";
+$count = "select count(distinct booking_seqnum) as cnt from tbl_device_booking where 1 $whereis";
 
 $count_result = $db->query($count);
 
@@ -55,9 +56,11 @@ $board_no = $cnt - $show_offset_num;
 $total_page = floor ( $cnt / $limit_num ) + 1;
 
 
-$sql = "select * from 
+$sql = "select *, count(a.booking_seqnum) as seq_cnt from 
 		tbl_device_booking a join tbl_member c on a.booking_mseq=c.mseq 
 		where 1 $whereis
+		group by a.booking_seqnum
+		having count(a.booking_seqnum) > 0
 		order by unix_timestamp(date_format(concat(a.booking_date,' ',a.booking_start_time), '%Y-%m-%d %H:%i')) desc, bseq desc
 		limit $limit_num offset $show_offset_num
 		";
@@ -173,7 +176,7 @@ if($query->rowCount() == 0){
 					<tr>
 						<td class="txt_c"><?=$board_no?></td>
 						<td class="txt_c"><?=date('Y.m.d', strtotime($row['booking_date']))?><br /><?=$row['booking_start_time']?> ~ <?=$row['booking_end_time']?></td>
-						<td class="txt_c"><a href="s1view_b.php?idx=<?=$row['bseq']?>">[<?=$sys_cate?>] <?=$row['booking_dv_name']?><?=$etc_count?></a></td>
+						<td class="txt_c"><a href="s1view.php?idx=<?=$row['booking_seqnum']?>">[<?=$sys_cate?>] <?=$row['booking_dv_name']?><?=$etc_count?></a></td>
 						<td class="txt_c"><?=$row['m_nick']?></td>
 						<td class="txt_c"><?=$booking_stat?></td>
 						<td class="txt_c"><?=date('Y.m.d H:i', strtotime($row['booking_regdate']))?></td>

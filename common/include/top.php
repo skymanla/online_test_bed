@@ -2,6 +2,8 @@
 include_once($_SERVER['DOCUMENT_ROOT']."/lib/dbconn.php");
 include_once($_SERVER['DOCUMENT_ROOT']."/lib/function.php");
 session_start();
+/*unset($_COOKIE['popupcookie']);
+setcookie("popupcookie", "", time() -1 );*/
 ?>
 <!DOCTYPE html>
 <html lang="ko">

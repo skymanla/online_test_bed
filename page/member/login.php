@@ -15,7 +15,7 @@
 						</div>
 						<ul>
 							<li>아직 가입 전 이신가요?<a href="register_from.php">회원가입</a></li>
-							<li><a href="lost.php">계정을 잊으셧나요?</a></li>
+							<li><a href="lost.php">가입 이메일 주소를 잊으셨나요?</a></li>
 						</ul>
 					</div>
 					<input type="submit" class="btn_sbt" value="접속" name="join" id="tb_sbt"/>

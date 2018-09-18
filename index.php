@@ -8,7 +8,7 @@
 					<a href="page/s2/s1.php">자세히보기</a>
 				</div>
 			</div>
-			<div class="bnr">
+			<!--<div class="bnr">
 				<div class="bnr_txt">
 					<em>테스트베드</em>
 					<p>온라인 테스트베드<br /><span>오픈하였습니다.</span></p>
@@ -21,7 +21,7 @@
 					<p>온라인 테스트베드<br /><span>오픈하였습니다.</span></p>
 					<a href="page/s2/s1.php">자세히보기</a>
 				</div>
-			</div>
+			</div> -->
 		</div>
 		<!-- END.banner_wrap -->
 
@@ -101,4 +101,9 @@
 				</li>
 			</ul>
 		</div>
+		<? if(!isset($_COOKIE['popupcookie'])){ ?>
+		<script>
+			window.open("./www/notice_pop.php", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=1,width=630,height=570");
+		</script>
+		<? } ?>
 	<?php include($_SERVER['DOCUMENT_ROOT']."/common/include/footer.php"); ?>

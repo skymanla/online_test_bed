@@ -4,8 +4,9 @@ include_once($_SERVER['DOCUMENT_ROOT']."/adm/_inc/adm_header.php");
 $idx = $_GET['idx'];
 $sql = "select * from 
 		tbl_device_booking a join tbl_member c on a.booking_mseq=c.mseq 
-		where bseq='$idx'
-		order by unix_timestamp(date_format(a.booking_date, '%Y-%m-%d')) desc";		
+		where booking_seqnum='$idx'
+		order by unix_timestamp(date_format(a.booking_date, '%Y-%m-%d')) desc";
+		echo $sql;
 $query = $db->query($sql);
 
 $rowcnt = $query->rowCount();
@@ -113,9 +114,9 @@ if($rowcnt == 0){
 			</table>
 		</div>
 		<div class="bt_wrap3">
-			<button type="button" class="bt_2" onclick="booking_change('<?=$list['bseq']?>', 'A');">승인</button>
-			<button type="button" class="bt_2" onclick="booking_change('<?=$list['bseq']?>', 'R');">거절</button>
-			<button type="button" class="bt_2" onclick="booking_change('<?=$list['bseq']?>', 'D');">삭제</button>
+			<button type="button" class="bt_2" onclick="booking_change('<?=$list['booking_seqnum']?>', 'A');">승인</button>
+			<button type="button" class="bt_2" onclick="booking_change('<?=$list['booking_seqnum']?>', 'R');">거절</button>
+			<button type="button" class="bt_2" onclick="booking_change('<?=$list['booking_seqnum']?>', 'D');">삭제</button>
 			<a href="s1.php" class="bt_2">목록</a>
 		</div>
 	</section>

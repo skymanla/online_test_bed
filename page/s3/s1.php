@@ -254,6 +254,7 @@ function booking_deviec(){
 		data : {"se_year" : se_year, "se_month" : se_month, "se_day" : se_day, "se_stime" : se_stime, "se_etime" : se_etime, "seq" : seq_data[0], "version" : seq_data[1], "seq_name" : seq_name, "seq_type" : seq_type},
 		url : "/common/ajax/device_booking.php",
 		success : function(result){
+			console.log(result);
 			if(result == "99"){
 				alert("현재 예약이 되어있습니다.");
 			}else{
