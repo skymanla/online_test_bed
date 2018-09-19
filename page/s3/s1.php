@@ -76,7 +76,7 @@ if(isset($_GET['os_type'])){
 									<td>
 										<div class="table_wrap">
 											<div>
-												<select name="start_time" title="" id="phone_time1" class="tt">
+												<!--<select name="start_time" title="" id="phone_time1" class="tt">
 													<option value="09:00" selected="selected">09:00</option>
 													<option value="10:00">10:00</option>
 													<option value="11:00">11:00</option>
@@ -93,26 +93,74 @@ if(isset($_GET['os_type'])){
 													<option value="22:00">22:00</option>
 													<option value="23:00">23:00</option>
 													<option value="24:00">24:00</option>
+												</select>-->
+												<select name="start_time" title="" id="phone_time1" class="tt">
+													<option value="09:00" selected="selected">09:00</option>
+													<option value="09:30">09:30</option>
+													<option value="10:00">10:00</option>
+													<option value="10:30">10:30</option>
+													<option value="11:00">11:00</option>
+													<option value="11:30">11:30</option>
+													<option value="12:00">12:00</option>
+													<option value="12:30">12:30</option>
+													<option value="13:00">13:00</option>
+													<option value="13:30">13:30</option>
+													<option value="14:00">14:00</option>
+													<option value="14:30">14:30</option>
+													<option value="15:00">15:00</option>
+													<option value="15:30">15:30</option>
+													<option value="16:00">16:00</option>
+													<option value="16:30">16:30</option>
+													<option value="17:00">17:00</option>
+													<option value="17:30">17:30</option>
+													<option value="18:00">18:00</option>
+													<option value="18:30">18:30</option>
+													<option value="19:00">19:00</option>
+													<option value="19:30">19:30</option>
+													<option value="20:00">20:00</option>
+													<option value="20:30">20:30</option>
+													<option value="21:00">21:00</option>
+													<option value="21:30">21:30</option>
+													<option value="22:00">22:00</option>
+													<option value="22:30">22:30</option>
+													<option value="23:00">23:00</option>
+													<option value="23:30">23:30</option>
+													<option value="24:00">24:00</option>
 												</select>
 											</div>
 											<div style="text-align:center;">~</div>
 											<div>
 												<select name="end_time" title="" id="phone_time2" class="tt">
 													<option value="09:00">09:00</option>
-													<option value="10:00" selected="selected">10:00</option>
+													<option value="09:30" selected="selected">09:30</option>
+													<option value="10:00">10:00</option>
+													<option value="10:30">10:30</option>
 													<option value="11:00">11:00</option>
+													<option value="11:30">11:30</option>
 													<option value="12:00">12:00</option>
+													<option value="12:30">12:30</option>
 													<option value="13:00">13:00</option>
+													<option value="13:30">13:30</option>
 													<option value="14:00">14:00</option>
+													<option value="14:30">14:30</option>
 													<option value="15:00">15:00</option>
+													<option value="15:30">15:30</option>
 													<option value="16:00">16:00</option>
+													<option value="16:30">16:30</option>
 													<option value="17:00">17:00</option>
+													<option value="17:30">17:30</option>
 													<option value="18:00">18:00</option>
+													<option value="18:30">18:30</option>
 													<option value="19:00">19:00</option>
+													<option value="19:30">19:30</option>
 													<option value="20:00">20:00</option>
+													<option value="20:30">20:30</option>
 													<option value="21:00">21:00</option>
+													<option value="21:30">21:30</option>
 													<option value="22:00">22:00</option>
+													<option value="22:30">22:30</option>
 													<option value="23:00">23:00</option>
+													<option value="23:30">23:30</option>
 													<option value="24:00">24:00</option>
 												</select>
 											</div>
@@ -227,6 +275,7 @@ function booking_deviec(){
 	//var select_date = new Date(se_year+"-"+se_month+"-"+se_day+" "+se_stime);
 	
 	var select_date = new Date(Number(se_year), Number(se_month)-1, Number(se_day), Number(stime_arr[0]), Number(stime_arr[1]));
+	var select_edate = new Date(Number(se_year), Number(se_month)-1, Number(se_day), Number(etime_arr[0]), Number(etime_arr[1]));
 	//var select_date = new Date(se_year+"-"+se_month+"-"+se_day+" "+se_stime);
 	var now_date = new Date();	
 	if(select_date < now_date){
@@ -234,8 +283,21 @@ function booking_deviec(){
 		return;
 	}
 
+	var getTime_sdate = Math.round(select_date.getTime() / 1000);
+	var getTime_edate = Math.round(select_edate.getTime() / 1000);
+	//console.log(Math.round(select_date.getTime() / 1000));
+	//console.log(Math.round(select_edate.getTime() / 1000));
+	if(getTime_sdate == getTime_edate){
+		alert("시작 시간과 종료 시간이 같습니다.");
+		return;
+	}
+
+	if(select_date > select_edate){
+		alert("종료 시간이 시작 시간보다 크면 안됩니다.");
+		return;
+	}
 	
-	if(Number(stime_arr['0']) > Number(etime_arr['0'])){
+	/*if(Number(stime_arr['0']) > Number(etime_arr['0'])){
 		alert("시작 시간이 종료 시간보다 크면 안됩니다.");
 		return;
 	}
@@ -243,7 +305,7 @@ function booking_deviec(){
 	if(Number(stime_arr['0']) == Number(etime_arr['0'])){
 		alert("시작 시간과 종료 시간이 같습니다.");
 		return;
-	}
+	}*/
 
 	if(Number(etime_arr['0'])-Number(stime_arr['0']) > 8){
 		alert("예약 시간은 8시간을 넘길 수가 없습니다.");
@@ -253,8 +315,7 @@ function booking_deviec(){
 		type : "POST",
 		data : {"se_year" : se_year, "se_month" : se_month, "se_day" : se_day, "se_stime" : se_stime, "se_etime" : se_etime, "seq" : seq_data[0], "version" : seq_data[1], "seq_name" : seq_name, "seq_type" : seq_type},
 		url : "/common/ajax/device_booking.php",
-		success : function(result){
-			console.log(result);
+		success : function(result){			
 			if(result == "99"){
 				alert("현재 예약이 되어있습니다.");
 			}else{
@@ -297,14 +358,20 @@ function booking_deviec(){
 						
 						if(prev_sdate == now_sdate){
 							if($('input[name=choose_seq]').eq(i).val() == seq_data[0]){//장비가 같다면 시간체크를 하긴 해야겠지								
-								console.log(prev_stime);
-								console.log(now_stime);
+								/*console.log("prev_stime : " + new Date($('input[name=choose_year]').eq(i).val(), Number($('input[name=choose_month]').eq(i).val())-1, $('input[name=choose_day]').eq(i).val(), pstime_arr[0], pstime_arr[1]));
+								console.log("prev_etime : " + new Date($('input[name=choose_year]').eq(i).val(), Number($('input[name=choose_month]').eq(i).val())-1, $('input[name=choose_day]').eq(i).val(), petime_arr[0], petime_arr[1]));
+								console.log(prev_etime-prev_stime);
+
+								console.log("now_stime : " + new Date(Number(se_year), Number(se_month)-1, Number(se_day), Number(sstime_arr[0]), Number(sstime_arr[1])));
+								console.log("now_etime : " + new Date(Number(se_year), Number(se_month)-1, Number(se_day), Number(estime_arr[0]), Number(estime_arr[1])));
+								console.log(now_etime-now_stime);*/
 								if( (prev_stime == now_stime) || (prev_etime == now_etime) ){//시작 시간이 같은 경우
 									input_flag = false;
 									alert("예약시간이 같습니다.");
 									break;
 								}
-								if(prev_stime+prev_etime > now_stime+now_etime){
+								
+								if((prev_etime-prev_stime > now_etime-now_stime) || (prev_etime > now_stime)){
 									input_flag = false;
 									alert("예약시간이 이전 신청시간 안에 속합니다.");
 									break;

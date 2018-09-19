@@ -10,6 +10,8 @@ setcookie("popupcookie", "", time() -1 );*/
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="Keywords" content="성남산업진흥원, 온라인테스트베드, online test bed" />
+	<meta name="Description" content="성남산업진흥원, 온라인테스트베드, online test bed" />
 	<title>테스트베드</title>
 	<link rel="stylesheet" type="text/css" href="<?=__HOST__?>/css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="<?=__HOST__?>/css/layout.css" />
