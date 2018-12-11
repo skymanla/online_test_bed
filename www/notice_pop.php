@@ -10,7 +10,7 @@ define(__HOST__, "http://".$_SERVER['HTTP_HOST']);
 		<div style="position:relative;width:600px;margin:0px auto;background-image:url(<?=__HOST__?>/img/test/email_title.jpg);background-repeat: no-repeat;">
 			<div style="position:relative;height:139px;"></div>
 			<div style="position:relative;border:1px solid #cccccc;width:598px;">
-				<p style="font-weight:bold">
+				<!-- <p style="font-weight:bold">
 					*사용시 유의사항<br>
 					<ol>
 						<li>신청하신 시간 안에서 사용이 가능합니다.</li>
@@ -28,6 +28,15 @@ define(__HOST__, "http://".$_SERVER['HTTP_HOST']);
 							</span>
 						</li>						
 						<li>테스트베드 사용 임시 아이디 및 패스워드는 홈페이지의<br> <span style="color:blue">"마이페이지->예약내역"</span> 에서 확인 가능합니다.</li>
+					</ol>
+				</p> -->
+				<p style="font-weight:bold">
+					*온라인 테스트베드 서비스 종료*<br>
+					<ol style="list-style:none;">
+						<li>온라인 테스트베드가 서비스를 종료하게 됩니다.</li>
+						<li>서비스 종료일 이후 홈페이지 접속 및 이용은 불가능합니다.</li>
+						<li>서비스 종료 일시 : <span style="color:red">2018년 12월 15일 자정 이후</span></li>
+						<li>이용해 주셔서 감사합니다.</li>												
 					</ol>
 				</p>
 			</div>

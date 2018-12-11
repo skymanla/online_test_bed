@@ -319,6 +319,7 @@ function booking_deviec(){
 			if(result == "99"){
 				alert("현재 예약이 되어있습니다.");
 			}else{
+				console.log(result);
 				var cnt = $('input[name=booking_cnt]').val();
 				if(!$('.booking_area').children().hasClass('chosebox')){
 					$('.booking_area').append(result);

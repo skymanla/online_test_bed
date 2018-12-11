@@ -10,9 +10,16 @@ setcookie("popupcookie", "", time() -1 );*/
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="Keywords" content="성남산업진흥원, 온라인테스트베드, online test bed" />
-	<meta name="Description" content="성남산업진흥원, 온라인테스트베드, online test bed" />
-	<title>테스트베드</title>
+	<meta name="Keywords" content="성남산업진흥원, 온라인테스트베드, 성남온라인테스트베드, online test bed" />
+	<meta name="Description" content="성남산업진흥원, 온라인테스트베드, 성남온라인테스트베드, online test bed" />
+	
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="성남온라인테스트베드">
+	<meta property="og:description" content="성남산업진흥원, 온라인테스트베드, 성남온라인테스트베드, online test bed">
+	<!--<meta property="og:image" content="http://www.mysite.com/myimage.jpg">-->
+	<meta property="og:url" content="http://snmacon.or.kr">
+
+	<title>성남온라인테스트베드</title>
 	<link rel="stylesheet" type="text/css" href="<?=__HOST__?>/css/reset.css" />
 	<link rel="stylesheet" type="text/css" href="<?=__HOST__?>/css/layout.css" />
 	<link rel="stylesheet" type="text/css" href="<?=__HOST__?>/css/main.css" />

@@ -13,8 +13,13 @@ $se_stime = $_REQUEST['se_stime'];
 $se_etime = $_REQUEST['se_etime'];
 
 $booking_date = $se_year."-".$se_month."-".$se_day;
+$booking_date = date('Y-m-d', strtotime($booking_date));
+
 $booking_sdate = $se_year."-".$se_month."-".$se_day." ".$se_stime;
+$booking_sdate = date('Y-m-d H:i:s', strtotime($booking_sdate));
+
 $booking_edate = $se_year."-".$se_month."-".$se_day." ".$se_etime;
+$booking_edate = date('Y-m-d H:i:s', strtotime($booking_edate));
 
 $seq = $_REQUEST['seq'];
 
@@ -38,6 +43,7 @@ $where_common = " a.booking_dvseq='".$seq."' and a.booking_date='".$booking_date
 				)";
 $sql = "select count(a.bseq) as cnt from ".$from_common." where ".$where_common."";
 
+//echo $sql;
 $q = $db->query($sql);
 $r = $q->fetch();
 if($r['cnt'] > 0){//예약이 있는 경우임.

@@ -54,8 +54,9 @@ if($query->rowCount() == false){
 	
 
 	if($mode == "A"){
-		$curl_data = array("startTime"=>$data['booking_date']." ".$data['booking_start_time'],
-							"endTime"=>$data['booking_date']." ".$data['booking_end_time'],
+	//$data['booking_date']
+		$curl_data = array("startTime"=>date('Y-m-d', strtotime($data['booking_date']))." ".$data['booking_start_time'],
+							"endTime"=>date('Y-m-d', strtotime($data['booking_date']))." ".$data['booking_end_time'],
 							"deviceList"=>$device['booking_dvseq']);//"deviceList"=>array($data['booking_dvseq']));
 
 		$temp_id = post_curl($curl_data);		
