@@ -1,6 +1,6 @@
 <?php
 try{
-	$db = new PDO("mysql:host=localhost;dbname=testbed", "testbed", "testbed2018!@");
+	$db = new PDO("mysql:host=localhost;dbname=localhost", "id", "pwd");
 }catch(PDOException $e){
 	echo 'Connect failed : '.$e->getMessage().'';
 	return false;
